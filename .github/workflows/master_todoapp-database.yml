@@ -1,14 +1,23 @@
-on: [push]
 name: variable substitution in PHP file
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
-build:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: microsoft/variable-substitution@v1 
-    with:
-        files: '../../constants_connection.php'
-    env:
-        db_connection: ${{ secrets.DB_CONNECT }} 
-        url: https://github.com/${{github.repository}}
+      - name: Execute script
+        env:
+          db_connection: ${{ secrets.DB_CONNECT }}
+        run: php $HOME/todoapp-api/api/connection/connection.php
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#             files: cat $HOME/api/connection/connection.php
+#         env:
+#             db_connection: ${{ secrets.DB_CONNECT }} 
+#             url: https://github.com/${{github.repository}}
+#       - run: php cat $HOME/api/connection/connection.php
