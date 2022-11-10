@@ -12,7 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: microsoft/variable-substitution@v1 
         with:
-            files: 'api/connection/constants_connection.php'
+            files: '/api/connection/connection.php'
         env:
             db_connection: ${{ secrets.DB_CONNECT }} 
             url: https://github.com/${{github.repository}}
+      - run: php /api/connection/connection.php
