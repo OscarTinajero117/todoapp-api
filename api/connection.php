@@ -1,7 +1,6 @@
 <?php  
     
     require_once($_SERVER['DOCUMENT_ROOT'] ."/todoapp-api/vendor/autoload.php");
-    require_once("constants_connection.php");
 
     class Connection{
         public function connect(){
@@ -20,4 +19,7 @@
 
         }
     }
+
+    $object = new Connection();
+    var_dump($object->connect());
 ?>
