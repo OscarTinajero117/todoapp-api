@@ -1,0 +1,14 @@
+on: [push]
+name: variable substitution in PHP file
+
+jobs:
+build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: microsoft/variable-substitution@v1 
+    with:
+        files: '../../constants_connection.php'
+    env:
+        db_connection: ${{ secrets.DB_CONNECT }} 
+        url: https://github.com/${{github.repository}}
