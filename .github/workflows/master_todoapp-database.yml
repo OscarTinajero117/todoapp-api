@@ -12,7 +12,7 @@ jobs:
       - name: Execute script
         env:
           db_connection: ${{ secrets.DB_CONNECT }}
-        run: php $HOME/api/connection/connection.php
+        run: php cat $HOME/api/connection/connection.php
 #     steps:
 #       - uses: actions/checkout@v2
 #         with:
