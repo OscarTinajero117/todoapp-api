@@ -2,7 +2,7 @@
     
     require_once($_SERVER['DOCUMENT_ROOT'] ."/todoapp-api/vendor/autoload.php");
 
-    class Connection{
+    class Connection {
         public function connect(){
             $DB = 'ToDoApp';
             try {
@@ -20,6 +20,6 @@
         }
     }
 
-    $object = new Connection();
-    var_dump($object->connect());
+    // $object = new Connection();
+    // var_dump($object->connect());
 ?>
